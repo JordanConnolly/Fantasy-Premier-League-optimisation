@@ -5,7 +5,7 @@
 Scripts to optimise my premier league fantasy football team so I don't need to do anything.
 
 ## Table of Contents
-- Data Sources and Handling: [Systematic process to create relevant literature DB.](./Section_1_Chapter_3/Section_1A_Data_Dump/)
+TBC
 
 ## Structure
 
