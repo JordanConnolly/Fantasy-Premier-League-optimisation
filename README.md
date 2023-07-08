@@ -10,10 +10,10 @@ TBC
 ## Structure
 
 No current structure. Planned structure is as follows:
-- 1) To gather relevant data sources, such as the FPL API, historical data and potentially news. 
-- 2) Apply mixed-integer linear programming (MILP) approach for initial team selection.
-- 3) Create rolling gameweek on gameweek update scripts.
-- 4) Automate the entire process as much as possible so I don't need to do anything.
+1) To gather relevant data sources, such as the FPL API, historical data and potentially news. 
+2) Apply mixed-integer linear programming (MILP) approach for initial team selection.
+3) Create rolling gameweek on gameweek update scripts.
+4) Automate the entire process as much as possible so I don't need to do anything.
 
 ## MILP Plan
 
