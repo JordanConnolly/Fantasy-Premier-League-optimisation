@@ -24,6 +24,8 @@ No current structure. Planned structure is as follows:
 - Position Constraints: Define constraints to ensure that the number of players selected for each position (e.g., goalkeepers, defenders, midfielders, forwards) matches the required number of players in each position.
 - Total Player Constraint: Ensure that the total number of selected players is equal to 15.
 
+Generally speaking: In our problem, we have last seasons data on the players in Fantasy Football. We have from the API, curated a dataset, which is a csv file (player_data_22-23.csv). Within this, we have the following columns: Player ID,Name,Team,Position,Cost,Total Points,Minutes,Goals Scored,Assists,Clean Sheets,Selected By %,ROI,Points per Minute,PpM ROI. We cannot have more than 3 players from a single team. We cannot spend over 100M. We can have a max of 15 Players. We can have a specific formation of players, such as 15 players spread across 2 goalies, 2-5 defenders, 2-5 midfielders, 2-3 forwards. We want to maximise the ROI and make sure we spend as little as possible on the best possible bench to maximise money available for the remaining 11 players on field.
+
 ## Usage
 
 To run the code use Python and the dependencies in the `requirements.txt` file.
