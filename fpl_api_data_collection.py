@@ -27,6 +27,7 @@ if response.status_code == 200:
     player_assists = []
     player_clean_sheets = []
     player_selected_by_percent = []
+    player_statuses = []
 
     # Iterate over the players
     for player in players:
@@ -41,6 +42,7 @@ if response.status_code == 200:
         player_assist = player["assists"]
         player_clean_sheet = player["clean_sheets"]
         player_selected_by = player["selected_by_percent"]
+        player_status = player["status"]
 
         # Append player information to the lists
         player_ids.append(player_id)
@@ -54,6 +56,7 @@ if response.status_code == 200:
         player_assists.append(player_assist)
         player_clean_sheets.append(player_clean_sheet)
         player_selected_by_percent.append(player_selected_by)
+        player_statuses.append(player_status)
 
     # Create a DataFrame to store player information
     player_df = pd.DataFrame(
@@ -69,6 +72,7 @@ if response.status_code == 200:
             "Assists": player_assists,
             "Clean Sheets": player_clean_sheets,
             "Selected By %": player_selected_by_percent,
+            "Status": player_statuses,
         }
     )
 
@@ -83,8 +87,8 @@ if response.status_code == 200:
         player_df["Total Points"] / player_df["Minutes"]
     ) * player_df["ROI"]
 
-    # Filter the DataFrame to include only players with more than 50 minutes
-    player_df = player_df[player_df["Minutes"] > 500]
+    # Filter out players who are unavailable, injured, or suspended
+    player_df = player_df[player_df["Status"] == "a"]
 
     # Save the DataFrame as a CSV file
     player_df.to_csv("player_data_22-23.csv", index=False)
