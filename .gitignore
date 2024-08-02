@@ -163,3 +163,4 @@ cython_debug/
 fpl_venv/
 scrap_folder/
 .venv*
+process_focussed/credentials.py

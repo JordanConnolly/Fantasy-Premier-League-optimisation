@@ -17,6 +17,6 @@ if response.status_code == 200:
     # Print all player related data, column by column on each printed row, 
     # for a single player_ID
     for player in players:
-        if player["id"] == 1:
+        if player["id"] == 200:
             for key, value in player.items():
                 print(key, ":", value)

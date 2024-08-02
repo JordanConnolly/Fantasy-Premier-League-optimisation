@@ -91,7 +91,7 @@ if response.status_code == 200:
     player_df = player_df[player_df["Status"] == "a"]
 
     # Save the DataFrame as a CSV file
-    player_df.to_csv("player_data_22-23.csv", index=False)
+    player_df.to_csv("player_data_23-24.csv", index=False)
 
     # print player_df looping over position; sorted by Points per Minute ROI
     for position in player_df["Position"].unique():

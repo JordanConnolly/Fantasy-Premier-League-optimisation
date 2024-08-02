@@ -60,6 +60,9 @@ if response.status_code == 200:
     # Calculate ROI (Return on Investment)
     player_df["ROI"] = player_df["Total Points"] / player_df["Cost"]
 
+    # Calculate ROI (Return on Investment) using minutes played and points
+    player_df["ROI with minutes played"] = player_df["Total Points"] * player_df["Minutes"] / player_df["Cost"]
+    
     # Calculate Points per Minute
     player_df["Points per Minute"] = player_df["Total Points"] / player_df["Minutes"]
 
@@ -69,7 +72,7 @@ if response.status_code == 200:
     # Create a scatter plot using Plotly for the non-dominated individuals
     fig = px.scatter(
         player_df,
-        x="Points per Minute",
+        x="ROI with minutes played",
         y="Total Points",
         color="Total Points",  # Color markers by points
         symbol="Position",  # Use different marker types for position
@@ -94,8 +97,8 @@ if response.status_code == 200:
 
     # Set axis labels and title
     fig.update_layout(
-        xaxis_title="X",
-        yaxis_title="Y",
+        xaxis_title="ROI with minutes played",
+        yaxis_title="Total Points",
         legend_title="Legend",
     )
 
@@ -119,18 +122,10 @@ if response.status_code == 200:
                             ],
                         ),
                         dict(
-                            label="Goalkeepers",
-                            method="update",
-                            args=[
-                                {"visible": [True, False, False, False]},
-                                {"title": "Goalkeepers"},
-                            ],
-                        ),
-                        dict(
                             label="Defenders",
                             method="update",
                             args=[
-                                {"visible": [False, True, False, False]},
+                                {"visible": [True, False, False, False]},
                                 {"title": "Defenders"},
                             ],
                         ),
@@ -138,7 +133,7 @@ if response.status_code == 200:
                             label="Midfielders",
                             method="update",
                             args=[
-                                {"visible": [False, False, True, False]},
+                                {"visible": [False, True, False, False]},
                                 {"title": "Midfielders"},
                             ],
                         ),
@@ -146,8 +141,16 @@ if response.status_code == 200:
                             label="Forwards",
                             method="update",
                             args=[
-                                {"visible": [False, False, False, True]},
+                                {"visible": [False, False, True, False]},
                                 {"title": "Forwards"},
+                            ],
+                        ),
+                        dict(
+                            label="Goalkeepers",
+                            method="update",
+                            args=[
+                                {"visible": [False, False, False, True]},
+                                {"title": "Goalkeepers"},
                             ],
                         ),
                     ]
